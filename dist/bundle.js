@@ -194,7 +194,7 @@
 	 * @param {string} data - data to send to the Back-end.
 	 */
 	DataReporter.prototype.makeRequest = function (id, data) {
-		win.console.log('dataCaptured: mapping id: ' + id + ' - data: ' + data);
+		window.console.log('dataCaptured: mapping id: ' + id + ' - data: ' + data);
 	};
 
 	/**
