@@ -1,4 +1,12 @@
+var _ = require('lodash');
+
 function Form (params) {
+
+	if (_.isEmpty(params.mappings) || _.isEmpty(params.dataReporter)) {
+
+		throw new Error('Form required dependencies declaration failed!');
+
+	}
 
 	this.init(params);
 
@@ -16,7 +24,15 @@ Form.prototype = {
 
 		this.mappings = params.mappings;
 		this.dataReporter = params.dataReporter;
-	
+
+
+
+	},
+
+	setEventListeners: function () {
+
+
+
 	}
 
 };

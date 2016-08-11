@@ -1,4 +1,5 @@
 var Form = require('../../JS/Classes/Form');
+var fakeParams = { param1: "foobar" };
 
 describe('Form', function () {
 
@@ -9,16 +10,16 @@ describe('Form', function () {
 			beforeEach(function () {
 		
 				form = new Form({
-					mappings: {},
-					dataReporter: {}
+					mappings: fakeParams,
+					dataReporter: fakeParams
 				});
 		
 			});
 
 			it('initalizes the form with mappings and dataReporter properties declared', function () {
 		
-				expect(form.mappings).toEqual({});
-				expect(form.dataReporter).toEqual({});
+				expect(form.mappings).toEqual(fakeParams);
+				expect(form.dataReporter).toEqual(fakeParams);
 		
 			});
 		
