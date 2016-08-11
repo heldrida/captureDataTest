@@ -80,3 +80,5 @@ var mappings = [
         isPhoneNumber: false
     }
 ];
+
+module.exports = mappings;

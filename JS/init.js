@@ -1,3 +1,6 @@
+var mappings = require('../mappings.js');
+var DataReporter = require('./Classes/DataReporter');
+
 (function () {
 	'use strict';
 
@@ -7,6 +10,7 @@
 	 * @name init
 	 */
 	function init () {
+
 	}
 
 	document.addEventListener('DOMContentLoaded', init, false);
