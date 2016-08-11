@@ -55,6 +55,7 @@
 	 */
 	document.addEventListener('DOMContentLoaded', function () {
 
+		// init Form module with the required dependencies
 		new Form({
 			mappings: mappings,
 			dataReporter: new DataReporter()
@@ -235,11 +236,7 @@
 
 			this.mappings = params.mappings;
 			this.dataReporter = params.dataReporter;
-
-
-			console.log(this.mappings);
-			console.log(this.dataReporter);
-			
+		
 		}
 
 	};

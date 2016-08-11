@@ -9,6 +9,7 @@ var Form = require('./Classes/Form');
  */
 document.addEventListener('DOMContentLoaded', function () {
 
+	// init Form module with the required dependencies
 	new Form({
 		mappings: mappings,
 		dataReporter: new DataReporter()
