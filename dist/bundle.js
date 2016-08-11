@@ -44,25 +44,23 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
 	var mappings = __webpack_require__(1);
 	var DataReporter = __webpack_require__(2);
+	var Form = __webpack_require__(3);
 
-	(function () {
-		'use strict';
+	/**
+	 * Captures data (based on mappings.js) and send data (using the DataReporter class).
+	 */
+	document.addEventListener('DOMContentLoaded', function () {
 
-		/**
-		 * This function is responsible for capturing data (based on mappings.js) and sending data (with use of DataReporter class).
-		 *
-		 * @name init
-		 */
-		function init () {
+		new Form({
+			mappings: mappings,
+			dataReporter: new DataReporter()
+		});
 
-		}
-
-		document.addEventListener('DOMContentLoaded', init, false);
-
-	}());
-
+	}, false);
 
 /***/ },
 /* 1 */
@@ -214,6 +212,39 @@
 	};
 
 	module.exports = DataReporter;
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	function Form (params) {
+
+		this.init(params);
+
+	}
+
+	Form.prototype = {
+		
+		init: function (params) {
+
+			this.setProperties(params);
+
+		},
+
+		setProperties: function (params) {
+
+			this.mappings = params.mappings;
+			this.dataReporter = params.dataReporter;
+
+
+			console.log(this.mappings);
+			console.log(this.dataReporter);
+			
+		}
+
+	};
+
+	module.exports = Form;
 
 /***/ }
 /******/ ]);

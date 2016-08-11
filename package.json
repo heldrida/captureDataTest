@@ -16,6 +16,7 @@
     "karma-jasmine-ajax": "^0.1.13",
     "karma-phantomjs-launcher": "^1.0.1",
     "karma-webpack": "^1.7.0",
+    "lodash": "^4.14.2",
     "webpack": "^1.13.1"
   }
 }

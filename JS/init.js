@@ -1,18 +1,17 @@
+'use strict';
+
 var mappings = require('../mappings.js');
 var DataReporter = require('./Classes/DataReporter');
+var Form = require('./Classes/Form');
 
-(function () {
-	'use strict';
+/**
+ * Captures data (based on mappings.js) and send data (using the DataReporter class).
+ */
+document.addEventListener('DOMContentLoaded', function () {
 
-	/**
-	 * This function is responsible for capturing data (based on mappings.js) and sending data (with use of DataReporter class).
-	 *
-	 * @name init
-	 */
-	function init () {
+	new Form({
+		mappings: mappings,
+		dataReporter: new DataReporter()
+	});
 
-	}
-
-	document.addEventListener('DOMContentLoaded', init, false);
-
-}());
+}, false);
