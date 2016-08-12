@@ -78,29 +78,29 @@ describe('Form', function () {
 
 		});
 
-		describe('Data store', function () {
+		// describe('Data store', function () {
 
-			var form;
+		// 	var form;
 			
-			beforeEach(function () {
+		// 	beforeEach(function () {
 				
-				form = new Form({
-					mappings: fakeParams,
-					dataReporter: fakeParams
-				});
+		// 		form = new Form({
+		// 			mappings: fakeParams,
+		// 			dataReporter: fakeParams
+		// 		});
 
-				form.dataReporter.store(1, 'new-data');
+		// 		form.dataReporter.store(1, 'new-data');
 
-			});
+		// 	});
 
-			it('data should exist', function () {
+		// 	it('data should exist', function () {
 
-				expect(form.dataReporter.data).toEqual({
-					1: 'new-data'
-				});
+		// 		expect(form.dataReporter.data).toEqual({
+		// 			1: 'new-data'
+		// 		});
 
-			});			
+		// 	});			
 
-		});
+		// });
 
 });
