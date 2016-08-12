@@ -260,7 +260,9 @@
 
 					el.addEventListener(this.mappedEvents[obj.event], function (e) {
 
-						this.userInputHandler.call(this, { el: e.target, attrs: obj });
+						var data = this.userInputHandler.call(this, { el: e.target, attrs: obj });
+
+						this.storeData({ id: obj.id, data: data});
 
 					}.bind(this));
 
@@ -328,6 +330,19 @@
 			// simplified validation *@*.*
 			var re = /\S+@\S+\.\S+/;
 			return re.test(data);
+		},
+
+		storeData: function (params) {
+
+			var id = params.id;
+			var data = params.data;
+
+			_.forEach(['makeRequest', 'send'], function (fnName, k) {
+
+				this.dataReporter[fnName](id, data);
+
+			}.bind(this));
+
 		}
 
 	};
