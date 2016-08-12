@@ -337,11 +337,7 @@
 			var id = params.id;
 			var data = params.data;
 
-			_.forEach(['makeRequest', 'send'], function (fnName, k) {
-
-				this.dataReporter[fnName](id, data);
-
-			}.bind(this));
+			this.dataReporter.send(id, data);
 
 		}
 
