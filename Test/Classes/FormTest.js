@@ -1,13 +1,20 @@
 var Form = require('../../JS/Classes/Form');
 var fakeParams = { param1: "foobar" };
-var fakeMapAttrs = {
+var fakeMapAttrs = [{
 	id: 20,
 	selector: '#foobar',
 	attribute: 'value',
 	event: 'onChange',
 	isEmail: false,
 	isPhoneNumber: false
-};
+}, {
+	id: 21,
+	selector: '#barfoo',
+	attribute: 'value',
+	event: 'onChange',
+	isEmail: false,
+	isPhoneNumber: false
+}];
 
 describe('Form', function () {
 
@@ -36,6 +43,7 @@ describe('Form', function () {
 		describe('User input handler', function () {
 
 			var el;
+			var str = 'test@test.cc';
 
 			beforeEach(function () {
 		
@@ -55,10 +63,18 @@ describe('Form', function () {
 
 				expect(form.userInputHandler({
 					el: el,
-					attrs: fakeMapAttrs
+					attrs: fakeMapAttrs[0]
 				})).toEqual('foobar');
 
-			});		
+			});
+
+			it('validate the email address', function () {
+				el.value = 'test@test.cc';
+				expect(form.userInputHandler({
+					el: el,
+					attrs: fakeMapAttrs[1]
+				})).toEqual('test@test.cc');
+			});
 
 		});
 

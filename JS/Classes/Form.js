@@ -53,25 +53,61 @@ Form.prototype = {
 	userInputHandler: function (params) {
 
 		var el = params.el;
-		var data = (function (attribute) {
+		var data = (function (attrs) {
 
-			switch (attribute) {
+			switch (attrs.attribute) {
+
 				case 'value':
-					data = el.value;
-					break;
-				case 'text':
-					data = el.text;
-					break;
-				default:
+
 					data = '';
-					break;
+
+					if (attrs.isEmail) {
+
+						if (this.validateEmail(el.value)) {
+
+							data = el.value;
+
+						}
+
+					} else {
+						
+						data = el.value;
+
+					}
+
+				break;
+
+				case 'text':
+
+					data = el.text;
+
+				break;
+
+				default:
+
+					data = '';
+
+				break;
+
 			}
 
 			return data;
 
-		}(params.attrs.attribute));
+		}.call(this, params.attrs));
 
 		return data;
+
+	},
+
+	validatePhoneNumber: function (data) {
+		// no requirements, just number
+		return data;
+	},
+
+	validateEmail: function (data) {
+		// simplified validation *@*.*
+		var re = /\S+@\S+\.\S+/;
+		return re.test(data);
 	}
 
 };
