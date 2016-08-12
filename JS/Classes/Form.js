@@ -102,8 +102,8 @@ Form.prototype = {
 	},
 
 	validatePhoneNumber: function (data) {
-		// no requirements, just number
-		return data;
+		var re = /^(?:\W*\d){11}\W*$/;
+		return re.test(data);
 	},
 
 	validateEmail: function (data) {

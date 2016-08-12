@@ -78,4 +78,29 @@ describe('Form', function () {
 
 		});
 
+		describe('Data store', function () {
+
+			var form;
+			
+			beforeEach(function () {
+				
+				form = new Form({
+					mappings: fakeParams,
+					dataReporter: fakeParams
+				});
+
+				form.dataReporter.store(1, 'new-data');
+
+			});
+
+			it('data should exist', function () {
+
+				expect(form.dataReporter.data).toEqual({
+					1: 'new-data'
+				});
+
+			});			
+
+		});
+
 });
