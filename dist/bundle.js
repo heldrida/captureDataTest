@@ -291,7 +291,7 @@
 
 			}(params.attrs.attribute));
 
-
+			return data;
 		}
 
 	};

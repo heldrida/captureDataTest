@@ -1,5 +1,13 @@
 var Form = require('../../JS/Classes/Form');
 var fakeParams = { param1: "foobar" };
+var fakeMapAttrs = {
+	id: 20,
+	selector: '#foobar',
+	attribute: 'value',
+	event: 'onChange',
+	isEmail: false,
+	isPhoneNumber: false
+};
 
 describe('Form', function () {
 
@@ -23,6 +31,35 @@ describe('Form', function () {
 		
 			});
 		
+		});
+
+		describe('User input handler', function () {
+
+			var el;
+
+			beforeEach(function () {
+		
+				form = new Form({
+					mappings: fakeParams,
+					dataReporter: fakeParams
+				});
+
+				el = document.createElement('input');
+				el.setAttribute('name', 'foobar');
+				el.setAttribute('id', 'foobar');
+				el.value = 'foobar';
+
+			});
+
+			it('should retrieve data from DOM element based on its attributes', function () {
+
+				expect(form.userInputHandler({
+					el: el,
+					attrs: fakeMapAttrs
+				})).toEqual('foobar');
+
+			});		
+
 		});
 
 });

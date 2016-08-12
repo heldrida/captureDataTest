@@ -71,7 +71,7 @@ Form.prototype = {
 
 		}(params.attrs.attribute));
 
-
+		return data;
 	}
 
 };
